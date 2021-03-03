@@ -2,3 +2,9 @@
     display: flex;
     margin: 10px;
 }
+
+@media screen and (max-width: 24rem){
+    .fruits-vegetables-row {
+        flex-direction: column;
+    }
+}
