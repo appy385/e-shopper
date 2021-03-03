@@ -1,0 +1,14 @@
+.header {
+    border: black solid 1px;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+.header-tab {
+    padding: 5px;
+    color: blanchedalmond;
+}
+
+.header-right {
+    display: flex;
+}
