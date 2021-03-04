@@ -1,30 +1,22 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import './Header.css';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+function Header({ value }) {
+  return (
+    <div className="header">
+      <Link to="/"><p className="header-tab eshopper">E-shopper</p></Link>
+      <div className="header-right">
+        <Link to="/order"><p className="header-tab orders">All Orders</p></Link>
+        <p className="header-tab items">
+          Basket Items:
+          {' '}
+          {value}
+        </p>
 
-    };
-  }
-
-  render() {
-    return (
-      <div className="header">
-        <p className="header-tab eshopper">E-shopper</p>
-        <div className="header-right">
-          <p className="header-tab orders">All Orders</p>
-          <p className="header-tab items">
-            Basket Items:
-            {' '}
-            {this.props.value}
-          </p>
-        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Header;
