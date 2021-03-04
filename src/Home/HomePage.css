@@ -1,6 +1,7 @@
 .fruits-vegetables-row {
     display: flex;
     margin: 10px;
+    flex-wrap: wrap;
 }
 
 @media screen and (max-width: 24rem){
