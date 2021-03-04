@@ -32,15 +32,18 @@ function Card(props) {
 }
 
 Card.propTypes = {
-  product: PropTypes.objectOf(PropTypes.object()).isRequired,
+  product: PropTypes.objectOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    src: PropTypes.string.isRequired,
+    seller: PropTypes.string.isRequired,
+    productName: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    count: PropTypes.number.isRequired,
+
+  })).isRequired,
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
-  src: PropTypes.string.isRequired,
-  seller: PropTypes.string.isRequired,
-  productName: PropTypes.string.isRequired,
-  quantity: PropTypes.number.isRequired,
-  price: PropTypes.number.isRequired,
 
 };
 
