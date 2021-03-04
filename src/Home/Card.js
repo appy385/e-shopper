@@ -1,5 +1,5 @@
 import React from 'react';
-import Prototype from 'prop-types';
+import PropTypes from 'prop-types';
 import './Card.css';
 import QuantityCounter from './QuantityCounter';
 
@@ -31,12 +31,17 @@ function Card(props) {
   );
 }
 
-Card.prototype = {
-  src: Prototype.string.isRequired,
-  seller: Prototype.string.isRequired,
-  productName: Prototype.string.isRequired,
-  quantity: Prototype.string.isRequired,
-  price: Prototype.string.isRequired,
+Card.propTypes = {
+  product: PropTypes.objectOf(PropTypes.object()).isRequired,
+  onIncrement: PropTypes.func.isRequired,
+  onDecrement: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  src: PropTypes.string.isRequired,
+  seller: PropTypes.string.isRequired,
+  productName: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+
 };
 
 export default Card;
