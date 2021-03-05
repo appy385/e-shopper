@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'; 
 import HomePage from './Home/HomePage';
 import Header from './Header/Header';
-import Order from './Order/Order';
+import AllOrdersPage from './Order/AllOrdersPage';
 import BasketPage from './Basket/BasketPage';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'; 
+import BasketCheckout from './Basket/BasketCheckout';
+
 
 
 class App extends React.Component {
@@ -23,20 +25,20 @@ class App extends React.Component {
         count: 0,
       }, {
         id: 2,
-        src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+        src: 'https://image.shutterstock.com/image-photo/ripe-mango-isolated-on-white-600w-1297537549.jpg',
         seller: 'Fresho',
-        productName: 'Banana-Robusta',
+        productName: 'Mango',
         quantity: '1kg',
-        price: 40,
+        price: 50,
         count: 0,
       },
       {
         id: 3,
-        src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+        src: 'https://image.shutterstock.com/image-photo/red-apple-isolated-on-white-600w-1727544364.jpg',
         seller: 'Fresho',
-        productName: 'Banana-Robusta',
+        productName: 'Apple',
         quantity: '1kg',
-        price: 40,
+        price: 70,
         count: 0,
       },
       {
@@ -100,13 +102,15 @@ class App extends React.Component {
         <div>
           <Header value={cartCount} />
           <Switch>
-          <Route path="/order" exact> <Order/></Route>
+          <Route path="/checkout" exact> <BasketCheckout /></Route>
+          <Route path="/order" exact> <AllOrdersPage/></Route>
           <Route path="/cart" exact> <BasketPage basket={cartItems}/></Route>
             <Route path="/"> <HomePage
               products={products}
               onIncrement={this.onIncrement}
               onDecrement={this.onDecrement}
             /></Route>
+           
              
           </Switch>
         </div>
