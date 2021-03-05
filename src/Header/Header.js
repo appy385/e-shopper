@@ -8,11 +8,14 @@ function Header({ value }) {
       <Link to="/"><p className="header-tab eshopper">E-shopper</p></Link>
       <div className="header-right">
         <Link to="/order"><p className="header-tab orders">All Orders</p></Link>
-        <p className="header-tab items">
-          Basket Items:
-          {' '}
-          {value}
-        </p>
+        <Link to="/cart">
+          <p className="header-tab items">
+            Basket Items:
+            {' '}
+            {value}
+          </p>
+
+        </Link>
 
       </div>
     </div>
