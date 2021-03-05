@@ -1,0 +1,38 @@
+.all-orders {
+    font-size: larger;
+    padding-left: 20px;
+}
+.past-orders {
+    font-size: larger;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+.order-table-container {
+    overflow-x:auto;
+}
+.order-table{
+    width: 50%;
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+tr {
+    color: black;
+}
+
+th {
+    color: white;
+    background-color: #303030;
+    /* border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; */
+    padding: 15px;
+    text-align: left;
+  
+}
+.order-details>td {
+    padding: 20px;
+    text-align: left;
+}
+.order-item>th {
+    background-color: cornflowerblue;
+}
