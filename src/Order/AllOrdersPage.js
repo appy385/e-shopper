@@ -41,13 +41,17 @@ function AllOrdersPage() {
             <td>Sun 04 March 2018 10:01 pm</td>
             <td>883.00</td>
           </tr>
+        </table>
+      </div>
+      <div className="order-table-container">
+        <table className="order-item-table">
           <tr className="order-item">
             <th>Item Description</th>
             <th>Unit Price</th>
             <th>Quantity</th>
             <th>SubTotal</th>
           </tr>
-          <tr className="cart-category">
+          <tr className="order-category">
             <td>Fruits and vegetables</td>
             <td> </td>
             <td> </td>
@@ -62,7 +66,6 @@ function AllOrdersPage() {
             <td>Total:</td>
             <td>{total}</td>
           </tr>
-
         </table>
       </div>
     </div>

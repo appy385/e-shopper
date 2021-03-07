@@ -1,11 +1,11 @@
 .all-orders {
     font-size: larger;
-    padding-left: 20px;
+    padding-left: 1.25rem;
 }
 .past-orders {
     font-size: larger;
-    padding-top: 30px;
-    padding-left: 30px;
+    padding-top: 1.8rem;
+    padding-left: 1.8rem;
 }
 .order-table-container {
     overflow-x:auto;
@@ -16,30 +16,38 @@
     border-collapse: collapse;
     border: 1px solid #ddd;
 }
-
 .order-table-header>th {
+    color: white;
     background-color: #303030;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    padding: 15px;
-    text-align: left;
-  
-}
-tr {
-    color: black;
-}
-
-th {
-    color: white;
-    background-color: #303030;
-    padding: 15px;
+    padding: 1rem;
     text-align: left;
   
 }
 .order-details>td {
-    padding: 20px;
+    padding:  1.25rem;
+    text-align: left;
+    max-width: 1.5rem;
+}
+.order-item-table{
+    width: 50%;
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+.order-category{
+    background-color: lightgray;
+}
+.order-category>td {
+    padding: 1rem;
     text-align: left;
 }
 .order-item>th {
     background-color: cornflowerblue;
+    padding: 1rem;
+    text-align: left;
+    color: white;
 }
+
+
