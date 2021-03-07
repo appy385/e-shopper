@@ -1,3 +1,27 @@
-.count {
-    border: maroon solid 0.2px;
+
+.quantity-container {
+    background-color: #F6CF72;
+    width:fit-content;
+    border: 0.1rem solid 0.1rem;
+    align-self: center;
 }
+.quantity-basket-count {
+    border: none;
+    background-color: #F6CF72;
+    width: 2rem;
+    height: 2rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0 0.1rem 0 0.1rem;
+    cursor: pointer;
+}
+
+.quantity-dec-button {
+    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+}
+
+.quantity-inc-button {
+    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+}
+
+

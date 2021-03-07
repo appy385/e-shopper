@@ -6,15 +6,12 @@ import './QuantityCounter.css';
 
 function QuantityCounter({ count, onIncrement, onDecrement }) {
   return (
-    <div className="quantity">
-      <button type="button" onClick={onIncrement}>+</button>
-      <p className="count">
-        {count}
-        {' '}
-        in Basket
-        {' '}
-      </p>
-      <button type="button" onClick={onDecrement}>-</button>
+    <div className="quantity-container">
+      <button type="button" className="quantity-inc-button" onClick={onIncrement}>+</button>
+      <span className="quantity-basket-count">
+        {`${count} in Basket`}
+      </span>
+      <button type="button" className="quantity-dec-button" onClick={onDecrement}>-</button>
     </div>
   );
 }

@@ -10,21 +10,13 @@ function Card(props) {
   } = product;
 
   return (
-    <div className="card">
+    <div className="product-card">
       <img src={src} alt="product" />
-      <div className="container">
-        <h4><b>{seller}</b></h4>
-        <p>{productName}</p>
-        <p>{quantity}</p>
-      </div>
-      <div className="basket">
-        <p>
-          MRP:
-          {' '}
-          {price}
-          {' '}
-          /-
-        </p>
+      <div className="product-seller">{seller}</div>
+      <div className="product-name">{productName}</div>
+      <div className="product-quantity">{quantity}</div>
+      <div className="product-card-box">
+        <div className="product-price">{`MRP: ${price} /-`}</div>
         <QuantityCounter count={count} onIncrement={onIncrement} onDecrement={onDecrement} />
       </div>
     </div>
