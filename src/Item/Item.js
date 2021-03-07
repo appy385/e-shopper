@@ -4,7 +4,7 @@ import './Item.css';
 
 function Item({ product }) {
   return (
-    <tr className="cart-product">
+    <tr className="item">
       <td>{product.productName}</td>
       <td>{product.price}</td>
       <td>{product.count}</td>
