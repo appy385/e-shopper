@@ -1,7 +1,27 @@
 import React from 'react';
 import './AllOrdersPage.css';
+import Item from '../Item/Item';
 
 function AllOrdersPage() {
+  const orderProducts = [{
+    id: 1,
+    productName: 'Banana-Robusta',
+    price: 80.00,
+    count: 2,
+  },
+  {
+    id: 2,
+    productName: 'Apple',
+    price: 100.00,
+    count: 3,
+  },
+  {
+    id: 3,
+    productName: 'Mango',
+    price: 60.00,
+    count: 3,
+  }];
+  const total = orderProducts.reduce((acc, product) => (acc + product.price * product.count), 0);
   return (
     <div>
       <p className="all-orders">All Orders</p>
@@ -9,7 +29,7 @@ function AllOrdersPage() {
       <p className="past-orders">Past Orders(10)</p>
       <div className="order-table-container">
         <table className="order-table">
-          <tr>
+          <tr className="order-table-header">
             <th>Order</th>
             <th>Item</th>
             <th>Date</th>
@@ -33,24 +53,16 @@ function AllOrdersPage() {
             <td> </td>
             <td> </td>
           </tr>
-          <tr className="cart-product">
-            <td>Banana-Robusta</td>
-            <td>Rs: 80.00</td>
-            <td>2</td>
-            <td>80.00</td>
-          </tr>
-          <tr className="cart-product">
-            <td>Apple</td>
-            <td>Rs: 80.00</td>
-            <td>2</td>
-            <td>80.00</td>
-          </tr>
-          <tr className="cart-product">
-            <td />
+          {orderProducts.map((product) => (
+            <Item product={product} />
+          ))}
+          <tr className="item">
             <td> </td>
-            <td><strong>Total</strong></td>
-            <td>160.00</td>
+            <td> </td>
+            <td>Total:</td>
+            <td>{total}</td>
           </tr>
+
         </table>
       </div>
     </div>
