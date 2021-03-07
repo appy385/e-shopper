@@ -31,11 +31,7 @@ function BasketPage({ basket }) {
       <div className="cart-container">
         <Link to="/"><button type="button" className="cart-back-button">continue shopping</button></Link>
         <div className="cart-checkout">
-          <p className="cart-amount">
-            Total:
-            {' '}
-            {cost}
-          </p>
+          <p className="cart-amount">{`Total: ${cost}`}</p>
           <hr className="cart-line" />
           <Link to="/checkout"><button type="button" className="checkout-button">checkout</button></Link>
         </div>
