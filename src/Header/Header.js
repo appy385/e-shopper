@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
@@ -9,17 +10,17 @@ function Header({ value }) {
       <div className="header-right">
         <Link to="/order"><p className="header-tab orders">All Orders</p></Link>
         <Link to="/cart">
-          <p className="header-tab items">
-            Basket Items:
-            {' '}
-            {value}
-          </p>
-
+          <p className="header-tab items">{`Basket Items: ${value}`}</p>
         </Link>
 
       </div>
     </div>
   );
 }
+
+Header.propTypes = {
+  value: PropTypes.number.isRequired,
+
+};
 
 export default Header;

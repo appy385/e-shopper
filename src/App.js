@@ -25,7 +25,7 @@ class App extends React.Component {
         count: 0,
       }, {
         id: 2,
-        src: 'https://image.shutterstock.com/image-photo/ripe-mango-isolated-on-white-600w-1297537549.jpg',
+        src: 'https://thumbs.dreamstime.com/b/mango-leaf-long-slices-isolated-white-background-fresh-cut-as-package-design-element-71454082.jpg',
         seller: 'Fresho',
         productName: 'Mango',
         quantity: '1kg',
@@ -34,7 +34,7 @@ class App extends React.Component {
       },
       {
         id: 3,
-        src: 'https://image.shutterstock.com/image-photo/red-apple-isolated-on-white-600w-1727544364.jpg',
+        src: 'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
         seller: 'Fresho',
         productName: 'Apple',
         quantity: '1kg',
@@ -45,7 +45,7 @@ class App extends React.Component {
         id: 4,
         src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
         seller: 'Fresho',
-        productName: 'Banana-Robusta',
+        productName: 'Banana-Organic',
         quantity: '1kg',
         price: 40,
         count: 0,
