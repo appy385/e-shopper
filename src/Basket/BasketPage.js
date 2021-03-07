@@ -2,6 +2,7 @@ import React from 'react';
 import './BasketPage.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Item from '../Item/Item';
 
 function BasketPage({ basket }) {
   const cost = basket.reduce((acc, product) => (acc + product.price * product.count), 0);
@@ -23,12 +24,7 @@ function BasketPage({ basket }) {
             <td> </td>
           </tr>
           {basket.map((product) => (
-            <tr className="cart-product">
-              <td>{product.productName}</td>
-              <td>{product.price}</td>
-              <td>{product.count}</td>
-              <td>{product.count * product.price}</td>
-            </tr>
+            <Item product={product} />
           ))}
         </table>
       </div>
