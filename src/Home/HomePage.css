@@ -1,11 +1,19 @@
+.home {
+    margin: 1rem;
+}
 .fruits-vegetables-row {
     display: flex;
-    margin: 10px;
     flex-wrap: wrap;
+}
+.home-category {
+    padding: 0 0 0.5rem 0;
 }
 
 @media screen and (max-width: 24rem){
     .fruits-vegetables-row {
-        flex-direction: column;
+        justify-content: center;
+    }
+    .home-category {
+        text-align: center;
     }
 }

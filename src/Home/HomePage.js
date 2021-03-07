@@ -26,7 +26,7 @@ class HomePage extends React.Component {
     return (
       <div className="home">
         <div className="home-page">
-          <div><strong>Fruits and Vegetables</strong></div>
+          <div className="home-category"><strong>Fruits and Vegetables</strong></div>
           <div className="fruits-vegetables-row">
             {allProducts}
           </div>
