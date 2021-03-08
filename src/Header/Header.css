@@ -1,13 +1,25 @@
-.header {
+.header-dark {
     display: flex;
     justify-content: space-between;
     background-color: black;
-}
-.header-tab {
-    padding: 0.3rem;
-    color: blanchedalmond;
+    color: white;
 }
 
+.header-light {
+    display: flex;
+    justify-content: space-between;
+    background-color: #D3D3D3;
+    color: black;
+    border-bottom: 1px black solid;
+}
+.header-tab-dark {
+    padding: 0.3rem;
+    color:white;
+}
+.header-tab-light{
+    padding: 0.3rem;
+    color: black;
+}
 .header-right {
     display: flex;
 }
