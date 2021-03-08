@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { ThemeContext, Theme } from './ThemeContext';
 import HomePage from './Home/HomePage';
 import Header from './Header/Header';
 import AllOrdersPage from './Order/AllOrdersPage';
@@ -8,6 +9,7 @@ import BasketPage from './Basket/BasketPage';
 import BasketCheckout from './Basket/BasketCheckout';
 
 const App = () => {
+  const [theme, setTheme] = useState('dark');
   const [cartCount, setCartCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [products, setProducts] = useState([{
@@ -74,10 +76,23 @@ const App = () => {
     setCartItems(newCartItems);
   };
 
+  const handleThemeChange = () => {
+    if (theme === 'dark') {
+      setTheme('light');
+    } else {
+      setTheme('dark');
+    }
+  };
+
   return (
     <BrowserRouter>
       <div>
-        <Header value={cartCount} />
+        <input type="checkbox" onClick={handleThemeChange} />
+        <span>Change Theme mode</span>
+        <ThemeContext.Provider value={(theme === 'dark' ? Theme.dark : Theme.light)}>
+          <Header value={cartCount} />
+        </ThemeContext.Provider>
+
         <Switch>
           <Route path="/checkout" exact>
             <BasketCheckout />
