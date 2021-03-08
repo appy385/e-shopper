@@ -1,122 +1,104 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'; 
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HomePage from './Home/HomePage';
 import Header from './Header/Header';
 import AllOrdersPage from './Order/AllOrdersPage';
 import BasketPage from './Basket/BasketPage';
 import BasketCheckout from './Basket/BasketCheckout';
 
+const App = () => {
+  const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
+  const [products, setProducts] = useState([{
+    id: 1,
+    src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+    seller: 'Fresho',
+    productName: 'Banana-Robusta',
+    quantity: '1kg',
+    price: 40,
+    count: 0,
+  }, {
+    id: 2,
+    src: 'https://thumbs.dreamstime.com/b/mango-leaf-long-slices-isolated-white-background-fresh-cut-as-package-design-element-71454082.jpg',
+    seller: 'Fresho',
+    productName: 'Mango',
+    quantity: '1kg',
+    price: 50,
+    count: 0,
+  },
+  {
+    id: 3,
+    src: 'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+    seller: 'Fresho',
+    productName: 'Apple',
+    quantity: '1kg',
+    price: 70,
+    count: 0,
+  },
+  {
+    id: 4,
+    src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+    seller: 'Fresho',
+    productName: 'Banana-Organic',
+    quantity: '1kg',
+    price: 40,
+    count: 0,
+  }]);
 
+  const onIncrement = (id) => {
+    setCartCount(cartCount + 1);
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cartCount: 0,
-      cartItems: [],
-      products: [{
-        id: 1,
-        src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-        seller: 'Fresho',
-        productName: 'Banana-Robusta',
-        quantity: '1kg',
-        price: 40,
-        count: 0,
-      }, {
-        id: 2,
-        src: 'https://thumbs.dreamstime.com/b/mango-leaf-long-slices-isolated-white-background-fresh-cut-as-package-design-element-71454082.jpg',
-        seller: 'Fresho',
-        productName: 'Mango',
-        quantity: '1kg',
-        price: 50,
-        count: 0,
-      },
-      {
-        id: 3,
-        src: 'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-        seller: 'Fresho',
-        productName: 'Apple',
-        quantity: '1kg',
-        price: 70,
-        count: 0,
-      },
-      {
-        id: 4,
-        src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-        seller: 'Fresho',
-        productName: 'Banana-Organic',
-        quantity: '1kg',
-        price: 40,
-        count: 0,
-      }],
-    };
-  }
+    const newProducts = products.map((product) => (product.id === id ? {
+      ...product,
+      count: product.count + 1,
+    } : product));
 
-  onIncrement = (id) => {
-    this.setState((prevState) => {
+    setProducts(newProducts);
 
-      let newState = {
-        ...prevState,
-        cartCount: prevState.cartCount + 1,
-        products: prevState.products.map((product) => ( product.id === id ? {
-          ...product,
-           count: product.count + 1 
-        }: product)),
-      }
-
-      newState = {
-        ...newState,
-        cartItems: newState.products.filter((product) => product.count>0),
-
-      }
-      return newState;
-    });
+    const newCartItems = newProducts.filter((product) => product.count > 0);
+    setCartItems(newCartItems);
   };
 
-  onDecrement = (id) => {
-    this.setState((prevState) => {
+  const onDecrement = (id) => {
+    const newCartCount = (cartCount > 0) ? cartCount - 1 : cartCount;
+    setCartCount(newCartCount);
 
-      let newState = {
-        ...prevState,
-        cartCount: (prevState.cartCount > 0) ? prevState.cartCount - 1 : prevState.cartCount,
-        products: prevState.products.map((product) => ( product.id === id ? {
-          ...product,
-          count: (product.id === id && product.count > 0) ? product.count - 1 : product.count,
-        }: product)),
-      }
+    const newProducts = products.map((product) => (product.id === id ? {
+      ...product,
+      count: (product.count > 0) ? product.count - 1 : product.count,
+    } : product));
+    setProducts(newProducts);
 
-      newState = {
-        ...newState,
-        cartItems: newState.products.filter((product) => product.count>0),
+    const newCartItems = newProducts.filter((product) => product.count > 0);
+    setCartItems(newCartItems);
+  };
 
-      }
-      return newState;
-    });
-  }
-
-  render() {
-    const { cartCount, cartItems,  products } = this.state;
-    return (
-      <BrowserRouter>
-        <div>
-          <Header value={cartCount} />
-          <Switch>
-          <Route path="/checkout" exact> <BasketCheckout /></Route>
-          <Route path="/order" exact> <AllOrdersPage/></Route>
-          <Route path="/cart" exact> <BasketPage basket={cartItems}/></Route>
-            <Route path="/"> <HomePage
+  return (
+    <BrowserRouter>
+      <div>
+        <Header value={cartCount} />
+        <Switch>
+          <Route path="/checkout" exact>
+            <BasketCheckout />
+          </Route>
+          <Route path="/order" exact>
+            <AllOrdersPage />
+          </Route>
+          <Route path="/cart" exact>
+            <BasketPage basket={cartItems} />
+          </Route>
+          <Route path="/">
+            <HomePage
               products={products}
-              onIncrement={this.onIncrement}
-              onDecrement={this.onDecrement}
-            /></Route>
-           
-             
-          </Switch>
-        </div>
-       </BrowserRouter>
-    );
-  }
-}
+              onIncrement={onIncrement}
+              onDecrement={onDecrement}
+            />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
+  );
+};
 
 export default App;
