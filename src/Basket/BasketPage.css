@@ -21,6 +21,7 @@
 }
 
 .cart-table-header>th {
+    color: white;
     background-color: #303030;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -74,6 +75,8 @@
    margin: 0.625rem;
  
 }
+
+
 
 
 @media screen and (max-width: 30rem){
