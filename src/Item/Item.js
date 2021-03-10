@@ -1,29 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Item.css';
+import './Item.scss';
 
-function Item({ product }) {
+const Item = ({ product }) => {
   return (
     <tr className="item">
       <td>{product.productName}</td>
       <td>{product.price}</td>
       <td>{product.count}</td>
-      <td>{product.count * product.price}</td>
+      <td data-testid="item-amount">{product.count * product.price}</td>
     </tr>
   );
 }
 
 Item.propTypes = {
-  product: PropTypes.objectOf(PropTypes.shape({
+  product: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    src: PropTypes.string.isRequired,
-    seller: PropTypes.string.isRequired,
+    src: PropTypes.string,
+    seller: PropTypes.string,
     productName: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
+    quantity: PropTypes.string,
     price: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
-
-  })).isRequired,
+    category: PropTypes.string.isRequired,
+  }).isRequired,
 
 };
 

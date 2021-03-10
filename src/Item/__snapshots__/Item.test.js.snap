@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item should match snapshot for Item component 1`] = `
+<div>
+  <table>
+    <tbody>
+      <tr
+        class="item"
+      >
+        <td>
+          Banana-Robusta
+        </td>
+        <td>
+          40
+        </td>
+        <td>
+          2
+        </td>
+        <td
+          data-testid="item-amount"
+        >
+          80
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
