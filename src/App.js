@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './App.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeContext, Theme } from './ThemeContext';
 import HomePage from './Home/HomePage';
@@ -16,36 +16,40 @@ const App = () => {
     id: 1,
     src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
     seller: 'Fresho',
-    productName: 'Banana-Robusta',
+    name: 'Banana-Robusta',
     quantity: '1kg',
     price: 40,
     count: 0,
+    category: 'Fruits & Vegatables',
   }, {
     id: 2,
     src: 'https://thumbs.dreamstime.com/b/mango-leaf-long-slices-isolated-white-background-fresh-cut-as-package-design-element-71454082.jpg',
     seller: 'Fresho',
-    productName: 'Mango',
+    name: 'Mango',
     quantity: '1kg',
     price: 50,
     count: 0,
+    category: 'Fruits & Vegatables',
   },
   {
     id: 3,
     src: 'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
     seller: 'Fresho',
-    productName: 'Apple',
+    name: 'Apple',
     quantity: '1kg',
     price: 70,
     count: 0,
+    category: 'Fruits & Vegatables',
   },
   {
     id: 4,
     src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
     seller: 'Fresho',
-    productName: 'Banana-Organic',
+    name: 'Banana-Organic',
     quantity: '1kg',
     price: 40,
     count: 0,
+    category: 'Fruits & Vegatables',
   }]);
 
   const onIncrement = (id) => {
@@ -87,8 +91,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <div>
-        <input type="checkbox" onClick={handleThemeChange} />
-        <span>Change Theme mode</span>
+        <label htmlFor="theme-input">Change Theme mode</label>
+        <input id="theme-input" type="checkbox" onClick={handleThemeChange} />
         <ThemeContext.Provider value={(theme === 'dark' ? Theme.dark : Theme.light)}>
           <Header value={cartCount} />
         </ThemeContext.Provider>
