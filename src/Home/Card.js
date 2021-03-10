@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Card.css';
+import './Card.scss';
 import QuantityCounter from './QuantityCounter';
 
-function Card(props) {
+const Card = (props) => {
   const { product, onIncrement, onDecrement } = props;
   const {
     id, src, seller, productName, quantity, price, count,
@@ -21,19 +21,18 @@ function Card(props) {
       </div>
     </div>
   );
-}
+};
 
 Card.propTypes = {
-  product: PropTypes.objectOf(PropTypes.shape({
+  product: PropTypes.shape({
     id: PropTypes.number.isRequired,
     src: PropTypes.string.isRequired,
     seller: PropTypes.string.isRequired,
     productName: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
+    quantity: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
-
-  })).isRequired,
+  }).isRequired,
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired,
 
