@@ -1,5 +1,5 @@
 import React from 'react';
-import './BasketPage.css';
+import './BasketPage.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Item from '../Item/Item';
