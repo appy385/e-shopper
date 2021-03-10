@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match snapshot for theme dark 1`] = `
+<div>
+  <div
+    class="header-dark"
+  >
+    <a
+      href="/"
+    >
+      <p
+        class="header-tab-dark eshopper"
+      >
+        E-shopper
+      </p>
+    </a>
+    <div
+      class="header-right"
+    >
+      <a
+        href="/order"
+      >
+        <p
+          class="header-tab-dark orders"
+        >
+          All Orders
+        </p>
+      </a>
+      <a
+        href="/cart"
+      >
+        <p
+          class="header-tab-dark items"
+        >
+          Basket Items: 0
+        </p>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header should match snapshot for theme light 1`] = `
+<div>
+  <div
+    class="header-light"
+  >
+    <a
+      href="/"
+    >
+      <p
+        class="header-tab-light eshopper"
+      >
+        E-shopper
+      </p>
+    </a>
+    <div
+      class="header-right"
+    >
+      <a
+        href="/order"
+      >
+        <p
+          class="header-tab-light orders"
+        >
+          All Orders
+        </p>
+      </a>
+      <a
+        href="/cart"
+      >
+        <p
+          class="header-tab-light items"
+        >
+          Basket Items: 0
+        </p>
+      </a>
+    </div>
+  </div>
+</div>
+`;
