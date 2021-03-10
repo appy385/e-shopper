@@ -6,14 +6,14 @@ import QuantityCounter from './QuantityCounter';
 const Card = (props) => {
   const { product, onIncrement, onDecrement } = props;
   const {
-    id, src, seller, productName, quantity, price, count,
+    id, src, seller, name, quantity, price, count, category
   } = product;
 
   return (
     <div className="product-card">
       <img src={src} alt="product" />
       <div className="product-seller">{seller}</div>
-      <div className="product-name">{productName}</div>
+      <div className="product-name">{name}</div>
       <div className="product-quantity">{quantity}</div>
       <div className="product-card-box">
         <div className="product-price">{`MRP: ${price} /-`}</div>
@@ -28,10 +28,11 @@ Card.propTypes = {
     id: PropTypes.number.isRequired,
     src: PropTypes.string.isRequired,
     seller: PropTypes.string.isRequired,
-    productName: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     quantity: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired,
