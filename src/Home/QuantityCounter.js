@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import React from 'react';
 
-import './QuantityCounter.css';
+import './QuantityCounter.scss';
 
 function QuantityCounter({ count, onIncrement, onDecrement }) {
   return (

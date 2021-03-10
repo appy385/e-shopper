@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuantityCounter should match snapshot for Card component 1`] = `
+<div>
+  <div
+    class="quantity-container"
+  >
+    <button
+      class="quantity-inc-button"
+      type="button"
+    >
+      +
+    </button>
+    <span
+      class="quantity-basket-count"
+    >
+      0 in Basket
+    </span>
+    <button
+      class="quantity-dec-button"
+      type="button"
+    >
+      -
+    </button>
+  </div>
+</div>
+`;
