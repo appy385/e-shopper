@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 
-import './HomePage.css';
+import './HomePage.scss';
 
 const HomePage = ({ products, onIncrement, onDecrement }) => {
   const allProducts = products.map((product) => (

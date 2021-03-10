@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage should match snapshot for Card component 1`] = `
+<div>
+  <div
+    class="home"
+  >
+    <div
+      class="home-page"
+    >
+      <div
+        class="home-category"
+      >
+        <strong>
+          Fruits and Vegetables
+        </strong>
+      </div>
+      <div
+        class="fruits-vegetables-row"
+      >
+        <div
+          class="product-card"
+        >
+          <img
+            alt="product"
+            src="https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+          />
+          <div
+            class="product-seller"
+          >
+            Fresho
+          </div>
+          <div
+            class="product-name"
+          >
+            Banana-Robusta
+          </div>
+          <div
+            class="product-quantity"
+          >
+            1kg
+          </div>
+          <div
+            class="product-card-box"
+          >
+            <div
+              class="product-price"
+            >
+              MRP: 40 /-
+            </div>
+            <div
+              class="quantity-container"
+            >
+              <button
+                class="quantity-inc-button"
+                type="button"
+              >
+                +
+              </button>
+              <span
+                class="quantity-basket-count"
+              >
+                0 in Basket
+              </span>
+              <button
+                class="quantity-dec-button"
+                type="button"
+              >
+                -
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
