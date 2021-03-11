@@ -1,0 +1,23 @@
+$primary-text-color: pink;
+//breakpoint
+$largeMobile-breakpoint : 700px;
+$tablet-breakpoint : 1000px;
+$laptop-breakpoint : 1500px;
+
+@mixin custom-mixin {
+    background-color: yellow;
+}
+
+
+@mixin media-mixin($width){
+    @media only screen and (min-width: $width){
+        @content
+    }
+
+}
+ 
+       
+   
+
+ 
+
