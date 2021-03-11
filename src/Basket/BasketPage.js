@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import Item from '../Item/Item';
 
 function BasketPage({ basket }) {
-  const cost = basket.reduce((acc, product) => (acc + product.price * product.count), 0);
+  const cost = Object.entries(basket).reduce((acc, category) => (
+    acc + category[1].reduce((accum, product) => (product.price * product.count), 0)
+  ), 0);
   return (
 
     <div className="cart">
@@ -17,15 +19,22 @@ function BasketPage({ basket }) {
             <th>Quantity</th>
             <th>SubTotal</th>
           </tr>
-          <tr className="cart-category">
-            <td>Fruits and vegetables</td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-          </tr>
-          {basket.map((product) => (
-            <Item product={product} />
-          ))}
+          {
+            Object.entries(basket).map((CategoryProducts) => (
+              <>
+                <tr className="cart-category">
+                  <td>{CategoryProducts[0]}</td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                </tr>
+                {CategoryProducts[1].map((product) => (
+                  <Item product={product} />
+                ))}
+              </>
+            ))
+          }
+
         </table>
       </div>
       <div className="cart-container">
@@ -41,8 +50,16 @@ function BasketPage({ basket }) {
   );
 }
 
+const productShape = PropTypes.shape({
+  id: PropTypes.number,
+  name: PropTypes.string,
+  quantity: PropTypes.number,
+  price: PropTypes.number,
+  src: PropTypes.string,
+  count: PropTypes.number,
+});
 BasketPage.propTypes = {
-  basket: PropTypes.arrayOf(PropTypes.object).isRequired,
+  basket: PropTypes.objectOf(PropTypes.arrayOf(productShape)).isRequired,
 
 };
 
