@@ -1,18 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import './BasketCheckout.css';
-import SignupForm from '../Form/SignupForm';
+import './BasketCheckout.scss';
+import CheckoutForm from '../Form/CheckoutForm';
 
-class BasketCheckout extends React.Component {
-  constructor() {
-    super();
-    this.setState = {};
-  }
-
-  render() {
-    return (
-      <div><SignupForm /></div>
-    );
-  }
-}
+const BasketCheckout = ({ basket, addOrder }) => {
+  const cartItems = { items: Object.values(basket).flat() };
+  return (
+    <div><CheckoutForm basket={cartItems} addOrder={addOrder} /></div>
+    // <h1>Thank you for shopping with us</h1>
+  );
+};
 
 export default BasketCheckout;
