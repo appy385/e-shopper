@@ -12,7 +12,7 @@ describe(Card.name, () => {
       src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
       seller: 'Fresho',
       name: 'Banana-Robusta',
-      quantity: '1kg',
+      quantity: 10,
       price: 40,
       count: 0,
       category: 'Fruits & Vegatables',
@@ -40,7 +40,7 @@ describe(Card.name, () => {
     screen.getByText(mockProduct.name);
     screen.getByAltText('product');
     screen.getByText(mockProduct.seller);
-    screen.getByText(mockProduct.quantity);
+    screen.getByText(`In stock: ${mockProduct.quantity}`);
     screen.getByText(`MRP: ${mockProduct.price} /-`);
   });
 });

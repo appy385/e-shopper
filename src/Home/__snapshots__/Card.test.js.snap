@@ -22,7 +22,7 @@ exports[`Card should match snapshot for Card component 1`] = `
     <div
       class="product-quantity"
     >
-      1kg
+      In stock: 10
     </div>
     <div
       class="product-card-box"
