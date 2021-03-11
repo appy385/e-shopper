@@ -1,0 +1,15 @@
+@import '../index.scss';
+.counter-button {
+  width: 3rem;
+  p {
+      color: aquamarine;
+  }
+  @include custom-mixin;
+}
+
+@include media-mixin($tablet-breakpoint){
+    .counter-button{
+        background-color: orange;
+    } 
+   
+}
