@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeContext, Theme } from './ThemeContext';
+import groupByCategory from './Utils/utils';
 import HomePage from './Home/HomePage';
 import Header from './Header/Header';
 import AllOrdersPage from './Order/AllOrdersPage';
@@ -11,72 +13,60 @@ import BasketCheckout from './Basket/BasketCheckout';
 const App = () => {
   const [theme, setTheme] = useState('dark');
   const [cartCount, setCartCount] = useState(0);
-  const [cartItems, setCartItems] = useState([]);
-  const [products, setProducts] = useState([{
-    id: 1,
-    src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    seller: 'Fresho',
-    name: 'Banana-Robusta',
-    quantity: '1kg',
-    price: 40,
-    count: 0,
-    category: 'Fruits & Vegatables',
-  }, {
-    id: 2,
-    src: 'https://thumbs.dreamstime.com/b/mango-leaf-long-slices-isolated-white-background-fresh-cut-as-package-design-element-71454082.jpg',
-    seller: 'Fresho',
-    name: 'Mango',
-    quantity: '1kg',
-    price: 50,
-    count: 0,
-    category: 'Fruits & Vegatables',
-  },
-  {
-    id: 3,
-    src: 'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    seller: 'Fresho',
-    name: 'Apple',
-    quantity: '1kg',
-    price: 70,
-    count: 0,
-    category: 'Fruits & Vegatables',
-  },
-  {
-    id: 4,
-    src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    seller: 'Fresho',
-    name: 'Banana-Organic',
-    quantity: '1kg',
-    price: 40,
-    count: 0,
-    category: 'Fruits & Vegatables',
-  }]);
+  const [cartItems, setCartItems] = useState({});
+  const [products, setProducts] = useState({});
+  const [orders, setOrders] = useState([]);
 
-  const onIncrement = (id) => {
+  useEffect(async () => {
+    const productList = await axios.get('/items');
+    const categoryProducts = groupByCategory(productList.data.data, 'products');
+    setProducts(categoryProducts);
+  }, []);
+
+  useEffect(async () => {
+    const orderList = await axios.get('/orders');
+    const ordersData = orderList.data.data;
+    const newOrders = ordersData.map((order) => ({
+      ...order,
+      total: order.items.length,
+      cost: order.items.reduce((acc, item) => (acc + item.price * item.count), 0),
+      items: groupByCategory(order.items, 'orders'),
+    }));
+    setOrders(newOrders);
+  }, []);
+
+  const onIncrement = (id, category) => {
     setCartCount(cartCount + 1);
-
-    const newProducts = products.map((product) => (product.id === id ? {
+    const newCategoryProducts = products[category].map((product) => ((product.id === id) ? {
       ...product,
       count: product.count + 1,
+      quantity: product.quantity - 1,
     } : product));
 
+    const newProducts = { ...products };
+    newProducts[category] = newCategoryProducts;
     setProducts(newProducts);
 
-    const newCartItems = newProducts.filter((product) => product.count > 0);
+    const newCartItems = { ...cartItems };
+    newCartItems[category] = newProducts[category].filter((product) => product.count > 0);
     setCartItems(newCartItems);
   };
 
-  const onDecrement = (id) => {
+  const onDecrement = (id, category) => {
     const newCartCount = (cartCount > 0) ? cartCount - 1 : cartCount;
     setCartCount(newCartCount);
-
-    const newProducts = products.map((product) => (product.id === id ? {
+    const newCategoryProducts = products[category].map((product) => ((product.id === id) ? {
       ...product,
       count: (product.count > 0) ? product.count - 1 : product.count,
+      quantity: product.quantity + 1,
     } : product));
+
+    const newProducts = { ...products };
+    newProducts[category] = newCategoryProducts;
     setProducts(newProducts);
 
-    const newCartItems = newProducts.filter((product) => product.count > 0);
+    const newCartItems = { ...cartItems };
+    newCartItems[category] = newProducts[category].filter((product) => product.count > 0);
     setCartItems(newCartItems);
   };
 
@@ -93,6 +83,7 @@ const App = () => {
       <div>
         <label htmlFor="theme-input">Change Theme mode</label>
         <input id="theme-input" type="checkbox" onClick={handleThemeChange} />
+
         <ThemeContext.Provider value={(theme === 'dark' ? Theme.dark : Theme.light)}>
           <Header value={cartCount} />
         </ThemeContext.Provider>
@@ -102,7 +93,7 @@ const App = () => {
             <BasketCheckout />
           </Route>
           <Route path="/order" exact>
-            <AllOrdersPage />
+            <AllOrdersPage orders={orders} />
           </Route>
           <Route path="/cart" exact>
             <BasketPage basket={cartItems} />
