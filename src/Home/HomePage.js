@@ -4,26 +4,29 @@ import Card from './Card';
 
 import './HomePage.scss';
 
-const HomePage = ({ products, onIncrement, onDecrement }) => {
-  const allProducts = products.map((product) => (
-    <Card
-      key={product.id}
-      product={product}
-      onIncrement={() => onIncrement(product.id)}
-      onDecrement={() => onDecrement(product.id)}
-    />
-  ));
-  return (
-    <div className="home">
-      <div className="home-page">
-        <div className="home-category"><strong>Fruits and Vegetables</strong></div>
-        <div className="fruits-vegetables-row">
-          {allProducts}
-        </div>
-      </div>
+const HomePage = ({ products, onIncrement, onDecrement }) => (
+  <div className="home">
+    <div className="home-page">
+      {
+            Object.entries(products).map((categoryProducts) => (
+              <div className="home-category" key={categoryProducts[0]}>
+                <strong>{categoryProducts[0]}</strong>
+                <div className="home-category-row">
+                  { categoryProducts[1].map((product) => (
+                    <Card
+                      key={product.id}
+                      product={product}
+                      onIncrement={() => onIncrement(product.id, product.category)}
+                      onDecrement={() => onDecrement(product.id, product.category)}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))
+        }
     </div>
-  );
-};
+  </div>
+);
 
 HomePage.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,

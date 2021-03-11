@@ -11,10 +11,11 @@ describe(HomePage.name, () => {
       id: 1,
       src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
       seller: 'Fresho',
-      productName: 'Banana-Robusta',
+      name: 'Banana-Robusta',
       quantity: '1kg',
       price: 40,
       count: 0,
+      category: 'Fruits & Vegatables',
     }];
     mockInc = jest.fn();
     mockDec = jest.fn();

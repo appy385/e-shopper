@@ -1,16 +1,17 @@
 .home {
     margin: 1rem;
 }
-.fruits-vegetables-row {
-    display: flex;
-    flex-wrap: wrap;
-}
+
 .home-category {
     padding: 0 0 0.5rem 0;
 }
+.home-category-row {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 @media screen and (max-width: 24rem){
-    .fruits-vegetables-row {
+    .home-category-row  {
         justify-content: center;
     }
     .home-category {
