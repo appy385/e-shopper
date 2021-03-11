@@ -5,8 +5,11 @@ import PropTypes from 'prop-types';
 import Item from '../Item/Item';
 
 function BasketPage({ basket }) {
-  const cost = Object.entries(basket).reduce((acc, category) => (
-    acc + category[1].reduce((accum, product) => (product.price * product.count), 0)
+  const cost = Object.entries(basket).reduce((currTotal, category) => (
+    currTotal + category[1].reduce(
+      (currCategoryTotal, product) => (currCategoryTotal + product.price * product.count),
+      0,
+    )
   ), 0);
   return (
 
@@ -42,7 +45,9 @@ function BasketPage({ basket }) {
         <div className="cart-checkout">
           <p className="cart-amount">{`Total: ${cost}`}</p>
           <hr className="cart-line" />
-          <Link to="/checkout"><button type="button" className="checkout-button">checkout</button></Link>
+          { (Object.keys(basket).length !== 0)
+            ? <Link to="/checkout"><button type="button" className="checkout-button">checkout</button></Link>
+            : <button type="button" className="checkout-button-disable">checkout</button>}
         </div>
       </div>
 
