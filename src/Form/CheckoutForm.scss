@@ -1,0 +1,23 @@
+.checkout-form {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#firstName {
+    margin: 1rem;
+}
+
+#lastName {
+    margin: 1rem;
+}
+
+#email {
+    margin: 1rem;
+}
+
+#submit {
+    padding: 0.5rem;
+    margin: 1rem;
+}
