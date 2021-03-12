@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './App.scss';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeContext, Theme } from './ThemeContext';
-import groupByCategory from './Utils/utils';
+import { getItems, getOrders } from './Utils/Api';
+import groupByCategory from './Utils/Helper';
 import HomePage from './Home/HomePage';
 import Header from './Header/Header';
 import AllOrdersPage from './Order/AllOrdersPage';
 import BasketPage from './Basket/BasketPage';
-import BasketCheckout from './Basket/BasketCheckout';
+import BasketCheckoutPage from './Basket/BasketCheckoutPage';
 
 const App = () => {
   const [theme, setTheme] = useState('dark');
@@ -18,22 +18,27 @@ const App = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(async () => {
-    const productList = await axios.get('/items');
-    const categoryProducts = groupByCategory(productList.data.data, 'products');
-    setProducts(categoryProducts);
+    const productList = await getItems();
+    if (productList) {
+      const categoryProducts = groupByCategory(productList.data, 'products');
+      console.log(categoryProducts);
+      setProducts(categoryProducts);
+    }
   }, []);
 
   useEffect(async () => {
-    const orderList = await axios.get('/orders');
-    const ordersData = orderList.data.data;
-    const newOrders = ordersData.map((order) => ({
-      ...order,
-      total: order.items.length,
-      cost: order.items.reduce((acc, item) => (acc + item.price * item.count), 0),
-      items: groupByCategory(order.items, 'orders'),
-    }));
-    setOrders(newOrders);
-  }, []);
+    const orderList = await getOrders();
+    if (orderList) {
+      const ordersData = orderList.data;
+      const newOrders = ordersData.map((order) => ({
+        ...order,
+        total: order.items.length,
+        cost: order.items.reduce((acc, item) => (acc + item.price * item.count), 0),
+        items: groupByCategory(order.items, 'orders'),
+      }));
+      setOrders(newOrders);
+    }
+  }, [orders]);
 
   const onIncrement = (id, category) => {
     setCartCount(cartCount + 1);
@@ -78,6 +83,10 @@ const App = () => {
     }
   };
 
+  const addOrder = (order) => {
+    console.log(order);
+  };
+
   return (
     <BrowserRouter>
       <div>
@@ -90,7 +99,7 @@ const App = () => {
 
         <Switch>
           <Route path="/checkout" exact>
-            <BasketCheckout />
+            <BasketCheckoutPage basket={cartItems} addOrder={addOrder} />
           </Route>
           <Route path="/order" exact>
             <AllOrdersPage orders={orders} />
