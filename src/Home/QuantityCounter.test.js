@@ -53,4 +53,12 @@ describe(QuantityCounter.name, () => {
     fireEvent.click(decrementCount);
     expect(mockDec).toHaveBeenCalled();
   });
+  test('should display count of product', async () => {
+    render(<QuantityCounter
+      count={mockCount}
+      onIncrement={mockInc}
+      onDecrement={mockDec}
+    />);
+    screen.getByText(`${mockCount} in Basket`);
+  });
 });
