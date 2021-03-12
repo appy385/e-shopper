@@ -16,15 +16,18 @@ function BasketPage({ basket }) {
     <div className="cart">
       <div className="cart-table-container">
         <table className="cart-table">
-          <tr className="cart-table-header">
-            <th>Item Description</th>
-            <th>Unit Price</th>
-            <th>Quantity</th>
-            <th>SubTotal</th>
-          </tr>
-          {
+          <thead>
+            <tr className="cart-table-header">
+              <th>Item Description</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+              <th>SubTotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
             Object.entries(basket).map((CategoryProducts) => (
-              <>
+              <React.Fragment key={CategoryProducts[0]}>
                 <tr className="cart-category">
                   <td>{CategoryProducts[0]}</td>
                   <td> </td>
@@ -32,12 +35,12 @@ function BasketPage({ basket }) {
                   <td> </td>
                 </tr>
                 {CategoryProducts[1].map((product) => (
-                  <Item product={product} />
+                  <Item product={product} key={product.id} />
                 ))}
-              </>
+              </React.Fragment>
             ))
           }
-
+          </tbody>
         </table>
       </div>
       <div className="cart-container">

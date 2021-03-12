@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasketPage should match snapshot 1`] = `
+<div>
+  <div
+    class="cart"
+  >
+    <div
+      class="cart-table-container"
+    >
+      <table
+        class="cart-table"
+      >
+        <thead>
+          <tr
+            class="cart-table-header"
+          >
+            <th>
+              Item Description
+            </th>
+            <th>
+              Unit Price
+            </th>
+            <th>
+              Quantity
+            </th>
+            <th>
+              SubTotal
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="cart-category"
+          >
+            <td>
+              Fruits & Vegatables
+            </td>
+            <td>
+               
+            </td>
+            <td>
+               
+            </td>
+            <td>
+               
+            </td>
+          </tr>
+          <tr
+            class="item"
+          >
+            <td>
+              Banana-Robusta
+            </td>
+            <td>
+              40
+            </td>
+            <td>
+              2
+            </td>
+            <td
+              data-testid="item-amount"
+            >
+              80
+            </td>
+          </tr>
+          <tr
+            class="cart-category"
+          >
+            <td>
+              Household Items
+            </td>
+            <td>
+               
+            </td>
+            <td>
+               
+            </td>
+            <td>
+               
+            </td>
+          </tr>
+          <tr
+            class="item"
+          >
+            <td>
+              table cloth
+            </td>
+            <td>
+              40
+            </td>
+            <td>
+              2
+            </td>
+            <td
+              data-testid="item-amount"
+            >
+              80
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="cart-container"
+    >
+      <a
+        href="/"
+      >
+        <button
+          class="cart-back-button"
+          type="button"
+        >
+          continue shopping
+        </button>
+      </a>
+      <div
+        class="cart-checkout"
+      >
+        <p
+          class="cart-amount"
+        >
+          Total: 160
+        </p>
+        <hr
+          class="cart-line"
+        />
+        <a
+          href="/checkout"
+        >
+          <button
+            class="checkout-button"
+            type="button"
+          >
+            checkout
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
