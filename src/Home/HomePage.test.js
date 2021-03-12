@@ -7,16 +7,29 @@ describe(HomePage.name, () => {
   let mockInc;
   let mockDec;
   beforeEach(() => {
-    mockProducts = [{
-      id: 1,
-      src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-      seller: 'Fresho',
-      name: 'Banana-Robusta',
-      quantity: '1kg',
-      price: 40,
-      count: 0,
-      category: 'Fruits & Vegatables',
-    }];
+    mockProducts = {
+      'Fruits & Vegatables': [{
+        id: 1,
+        src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+        seller: 'Fresho',
+        name: 'Banana-Robusta',
+        quantity: 10,
+        price: 40,
+        count: 0,
+        category: 'Fruits & Vegatables',
+      },
+      {
+        id: 2,
+        src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+        seller: 'Fresho',
+        name: 'Banana-Organic',
+        quantity: 10,
+        price: 40,
+        count: 0,
+        category: 'Fruits & Vegatables',
+      },
+      ],
+    };
     mockInc = jest.fn();
     mockDec = jest.fn();
   });
@@ -33,12 +46,25 @@ describe(HomePage.name, () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('should display the product category "Fruits and Vegetables"', () => {
+  test('should display the product category "Fruits & Vegetables"', () => {
     render(<HomePage
       products={mockProducts}
       onIncrement={mockInc}
       onDecrement={mockDec}
     />);
-    screen.getByText('Fruits and Vegetables');
+    screen.getByText('Fruits & Vegatables');
+  });
+
+  test('should display the product details for id: 1', () => {
+    render(<HomePage
+      products={mockProducts}
+      onIncrement={mockInc}
+      onDecrement={mockDec}
+    />);
+    screen.getByText(mockProducts['Fruits & Vegatables'][0].name);
+    screen.getAllByAltText('product');
+    screen.getAllByText(mockProducts['Fruits & Vegatables'][0].seller);
+    screen.getAllByText(`In stock: ${mockProducts['Fruits & Vegatables'][0].quantity}`);
+    screen.getAllByText(`MRP: ${mockProducts['Fruits & Vegatables'][0].price} /-`);
   });
 });

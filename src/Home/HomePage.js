@@ -28,8 +28,15 @@ const HomePage = ({ products, onIncrement, onDecrement }) => (
   </div>
 );
 
+const productShape = PropTypes.shape({
+  id: PropTypes.number,
+  name: PropTypes.string,
+  quantity: PropTypes.number,
+  price: PropTypes.number,
+  url: PropTypes.string,
+});
 HomePage.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  products: PropTypes.objectOf(PropTypes.arrayOf(productShape)).isRequired,
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired,
 

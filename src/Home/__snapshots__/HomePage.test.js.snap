@@ -12,62 +12,115 @@ exports[`HomePage should match snapshot for Card component 1`] = `
         class="home-category"
       >
         <strong>
-          Fruits and Vegetables
+          Fruits & Vegatables
         </strong>
-      </div>
-      <div
-        class="fruits-vegetables-row"
-      >
         <div
-          class="product-card"
+          class="home-category-row"
         >
-          <img
-            alt="product"
-            src="https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-          />
           <div
-            class="product-seller"
+            class="product-card"
           >
-            Fresho
-          </div>
-          <div
-            class="product-name"
-          >
-            Banana-Robusta
-          </div>
-          <div
-            class="product-quantity"
-          >
-            1kg
-          </div>
-          <div
-            class="product-card-box"
-          >
+            <img
+              alt="product"
+              src="https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            />
             <div
-              class="product-price"
+              class="product-seller"
             >
-              MRP: 40 /-
+              Fresho
             </div>
             <div
-              class="quantity-container"
+              class="product-name"
             >
-              <button
-                class="quantity-inc-button"
-                type="button"
+              Banana-Robusta
+            </div>
+            <div
+              class="product-quantity"
+            >
+              In stock: 10
+            </div>
+            <div
+              class="product-card-box"
+            >
+              <div
+                class="product-price"
               >
-                +
-              </button>
-              <span
-                class="quantity-basket-count"
+                MRP: 40 /-
+              </div>
+              <div
+                class="quantity-container"
               >
-                0 in Basket
-              </span>
-              <button
-                class="quantity-dec-button"
-                type="button"
+                <button
+                  class="quantity-inc-button"
+                  type="button"
+                >
+                  +
+                </button>
+                <span
+                  class="quantity-basket-count"
+                >
+                  0 in Basket
+                </span>
+                <button
+                  class="quantity-dec-button"
+                  type="button"
+                >
+                  -
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="product-card"
+          >
+            <img
+              alt="product"
+              src="https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+            />
+            <div
+              class="product-seller"
+            >
+              Fresho
+            </div>
+            <div
+              class="product-name"
+            >
+              Banana-Organic
+            </div>
+            <div
+              class="product-quantity"
+            >
+              In stock: 10
+            </div>
+            <div
+              class="product-card-box"
+            >
+              <div
+                class="product-price"
               >
-                -
-              </button>
+                MRP: 40 /-
+              </div>
+              <div
+                class="quantity-container"
+              >
+                <button
+                  class="quantity-inc-button"
+                  type="button"
+                >
+                  +
+                </button>
+                <span
+                  class="quantity-basket-count"
+                >
+                  0 in Basket
+                </span>
+                <button
+                  class="quantity-dec-button"
+                  type="button"
+                >
+                  -
+                </button>
+              </div>
             </div>
           </div>
         </div>
