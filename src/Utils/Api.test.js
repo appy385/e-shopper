@@ -1,56 +1,31 @@
 import React from 'react';
 import axios from 'axios';
-import getCall from './Api';
+import { getItems, getOrders, createOrder } from './Api';
+import { mockGetItems, mockGetOrders, mockCreateOrder } from '../mockdata/api';
 
-describe(getCall.name, () => {
+describe(getItems.name, () => {
   test('should return response with "/items" path ', async () => {
     const axiosGetSpy = jest.spyOn(axios, 'get');
-    const mockResponse = {
-      data: {
-        data: [
-          {
-            id: 1,
-            name: 'apple',
-            price: 120,
-            count: 20,
-            category: 'Fruits & Vegatables',
-          },
-          {
-            id: 2,
-            name: 'table cloth',
-            price: 200,
-            count: 3,
-            category: 'Household Items',
-          }],
-      },
-    };
-    axiosGetSpy.mockResolvedValue(mockResponse);
-    const response = await getCall('/items');
-    expect(response).toEqual(mockResponse.data);
+    axiosGetSpy.mockResolvedValue(mockGetItems);
+    const response = await getItems();
+    expect(response).toEqual(mockGetItems.data);
   });
+});
+
+describe(getOrders.name, () => {
   test('should return response with "/orders" path ', async () => {
     const axiosGetSpy = jest.spyOn(axios, 'get');
-    const mockResponse = {
-      data: {
-        data: [
-          {
-            items: [
-              {
-                id: 1,
-                name: 'apple',
-                price: 120,
-                count: 1,
-                category: 'Fruits & Vegatables',
-              },
-            ],
-            id: 1,
-            date: 1615122360481,
-          },
-        ],
-      },
-    };
-    axiosGetSpy.mockResolvedValue(mockResponse);
-    const response = await getCall('/orders');
-    expect(response).toEqual(mockResponse.data);
+    axiosGetSpy.mockResolvedValue(mockGetOrders);
+    const response = await getOrders();
+    expect(response).toEqual(mockGetOrders.data);
+  });
+});
+
+describe(createOrder.name, () => {
+  test('should return response with "/order" path ', async () => {
+    const axiosGetSpy = jest.spyOn(axios, 'post');
+    axiosGetSpy.mockResolvedValue(mockCreateOrder);
+    const response = await createOrder();
+    expect(response).toEqual(mockCreateOrder.data);
   });
 });

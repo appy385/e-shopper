@@ -1,9 +1,15 @@
-import React from 'react';
 import axios from 'axios';
 
-const getCall = async (path) => {
-  const res = await axios.get(path);
+export const getItems = async () => {
+  const res = await axios.get('/items');
+  return res.data;
+};
+export const getOrders = async () => {
+  const res = await axios.get('/orders');
   return res.data;
 };
 
-export default getCall;
+export const createOrder = async (body) => {
+  const res = await axios.post('/orders', body);
+  return res.data;
+};
