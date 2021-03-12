@@ -1,35 +1,14 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import HomePage from './HomePage';
+import { mockAppProducts } from '../mockdata/app';
 
 describe(HomePage.name, () => {
   let mockProducts;
   let mockInc;
   let mockDec;
   beforeEach(() => {
-    mockProducts = {
-      'Fruits & Vegatables': [{
-        id: 1,
-        src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-        seller: 'Fresho',
-        name: 'Banana-Robusta',
-        quantity: 10,
-        price: 40,
-        count: 0,
-        category: 'Fruits & Vegatables',
-      },
-      {
-        id: 2,
-        src: 'https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-        seller: 'Fresho',
-        name: 'Banana-Organic',
-        quantity: 10,
-        price: 40,
-        count: 0,
-        category: 'Fruits & Vegatables',
-      },
-      ],
-    };
+    mockProducts = mockAppProducts;
     mockInc = jest.fn();
     mockDec = jest.fn();
   });
