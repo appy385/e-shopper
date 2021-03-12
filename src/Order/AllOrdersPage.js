@@ -13,7 +13,7 @@ const AllOrdersPage = ({ orders }) => (
           orders.map((order) => {
             const orderDate = new Date(order.date);
             return (
-              <>
+              <React.Fragment key={order.id}>
                 <table className="order-table">
                   <thead>
                     <tr className="order-table-header">
@@ -45,17 +45,19 @@ const AllOrdersPage = ({ orders }) => (
                     <tbody>
                       {
                          Object.entries(order.items).map((CategoryItems) => (
-                           <>
+                           <React.Fragment key={CategoryItems[0]}>
                              <tr className="order-category">
                                <td>{CategoryItems[0]}</td>
                                <td> </td>
                                <td> </td>
                                <td> </td>
                              </tr>
+
                              { CategoryItems[1].map((item) => (
                                <Item key={item.id} product={item} />
                              ))}
-                           </>
+                           </React.Fragment>
+
                          ))
                       }
 
@@ -68,7 +70,7 @@ const AllOrdersPage = ({ orders }) => (
                     </tbody>
                   </table>
                 </div>
-              </>
+              </React.Fragment>
             );
           })
        }

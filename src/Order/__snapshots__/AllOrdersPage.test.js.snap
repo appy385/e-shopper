@@ -12,7 +12,7 @@ exports[`AllOrdersPage should match snapshot for AllOrdersPage component 1`] = `
     <p
       class="past-orders"
     >
-      Past Orders(10)
+      Past Orders(2)
     </p>
     <div
       class="order-table-container"
@@ -43,134 +43,212 @@ exports[`AllOrdersPage should match snapshot for AllOrdersPage component 1`] = `
             class="order-details"
           >
             <td>
-              order id: 12
+              order id: 1
+            </td>
+            <td />
+            <td>
+              NaN-NaN-NaN
             </td>
             <td>
-              18 items
-            </td>
-            <td>
-              Sun 04 March 2018 10:01 pm
-            </td>
-            <td>
-              883.00
+              40
             </td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div
-      class="order-table-container"
-    >
+      <div
+        class="order-item-container"
+      >
+        <table
+          class="order-item-table"
+        >
+          <thead>
+            <tr
+              class="order-item"
+            >
+              <th>
+                Item Description
+              </th>
+              <th>
+                Unit Price
+              </th>
+              <th>
+                Quantity
+              </th>
+              <th>
+                SubTotal
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="order-category"
+            >
+              <td>
+                Fruits & Vegatables
+              </td>
+              <td>
+                 
+              </td>
+              <td>
+                 
+              </td>
+              <td>
+                 
+              </td>
+            </tr>
+            <tr
+              class="item"
+            >
+              <td>
+                Banana-Robusta
+              </td>
+              <td>
+                40
+              </td>
+              <td>
+                0
+              </td>
+              <td
+                data-testid="item-amount"
+              >
+                0
+              </td>
+            </tr>
+            <tr
+              class="order-item-total"
+            >
+              <td>
+                 
+              </td>
+              <td>
+                 
+              </td>
+              <td>
+                Total:
+              </td>
+              <td>
+                40
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <table
-        class="order-item-table"
+        class="order-table"
       >
         <thead>
           <tr
-            class="order-item"
+            class="order-table-header"
           >
             <th>
-              Item Description
+              Order
             </th>
             <th>
-              Unit Price
+              Item
             </th>
             <th>
-              Quantity
+              Date
             </th>
             <th>
-              SubTotal
+              Amount
             </th>
           </tr>
         </thead>
         <tbody>
           <tr
-            class="order-category"
+            class="order-details"
           >
             <td>
-              Fruits and vegetables
+              order id: 2
+            </td>
+            <td />
+            <td>
+              NaN-NaN-NaN
             </td>
             <td>
-               
-            </td>
-            <td>
-               
-            </td>
-            <td>
-               
-            </td>
-          </tr>
-          <tr
-            class="item"
-          >
-            <td>
-              Banana-Robusta
-            </td>
-            <td>
-              80
-            </td>
-            <td>
-              2
-            </td>
-            <td
-              data-testid="item-amount"
-            >
-              160
-            </td>
-          </tr>
-          <tr
-            class="item"
-          >
-            <td>
-              Apple
-            </td>
-            <td>
-              100
-            </td>
-            <td>
-              3
-            </td>
-            <td
-              data-testid="item-amount"
-            >
-              300
-            </td>
-          </tr>
-          <tr
-            class="item"
-          >
-            <td>
-              Mango
-            </td>
-            <td>
-              60
-            </td>
-            <td>
-              3
-            </td>
-            <td
-              data-testid="item-amount"
-            >
-              180
-            </td>
-          </tr>
-          <tr
-            class="item"
-          >
-            <td>
-               
-            </td>
-            <td>
-               
-            </td>
-            <td>
-              Total:
-            </td>
-            <td>
-              640
+              40
             </td>
           </tr>
         </tbody>
       </table>
+      <div
+        class="order-item-container"
+      >
+        <table
+          class="order-item-table"
+        >
+          <thead>
+            <tr
+              class="order-item"
+            >
+              <th>
+                Item Description
+              </th>
+              <th>
+                Unit Price
+              </th>
+              <th>
+                Quantity
+              </th>
+              <th>
+                SubTotal
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="order-category"
+            >
+              <td>
+                Fruits & Vegatables
+              </td>
+              <td>
+                 
+              </td>
+              <td>
+                 
+              </td>
+              <td>
+                 
+              </td>
+            </tr>
+            <tr
+              class="item"
+            >
+              <td>
+                Banana-Robusta
+              </td>
+              <td>
+                40
+              </td>
+              <td>
+                0
+              </td>
+              <td
+                data-testid="item-amount"
+              >
+                0
+              </td>
+            </tr>
+            <tr
+              class="order-item-total"
+            >
+              <td>
+                 
+              </td>
+              <td>
+                 
+              </td>
+              <td>
+                Total:
+              </td>
+              <td>
+                40
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
