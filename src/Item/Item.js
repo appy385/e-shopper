@@ -17,7 +17,7 @@ Item.propTypes = {
     src: PropTypes.string,
     seller: PropTypes.string,
     name: PropTypes.string.isRequired,
-    quantity: PropTypes.string,
+    quantity: PropTypes.number,
     price: PropTypes.number.isRequired,
     count: PropTypes.number.isRequired,
     category: PropTypes.string.isRequired,
