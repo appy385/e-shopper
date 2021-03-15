@@ -1,14 +1,16 @@
 .product-card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 0.25rem 0.5rem 0 rgba(0,0,0,0.2);
-    width: 10rem;
-    height: 22rem;
-    margin: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 0.5rem 0 #9a9a9a;
+    padding: 0.5rem;
+    width: calc((100% - (8 * 0.5rem + 5*1rem)) / 4);
+    margin: 0.5rem;
 }
 img {
     width: 100%;
-    height: 40%;
-  
+
 }
 
 .product-seller {
@@ -33,10 +35,10 @@ img {
     display: flex;
     margin: auto;
     flex-direction: column;
-    justify-content: center;
-    width: 85%;
-    height: 28%;
-    background-color: 	#F5F5F5;
+    margin: .5rem 0 0 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #F4F3F1;
 }
 
 .product-price {
@@ -49,4 +51,22 @@ img {
     color: red;
     text-align: center;
     border: red 1px solid;
+}
+
+@media (max-width: 30rem) {
+    .product-card {
+        width: calc((100% - (2 * 0.5rem + 2 * 1rem)));
+    }
+}
+
+@media (max-width: 48rem) {
+    .container {
+        width:  calc((100% - (4 * 0.5rem + 3 * 1rem)) / 2);
+    }
+}
+
+@media (max-width: 72rem) {
+    .container {
+        width:  calc((100% - (6 * 0.5rem + 4 * 1rem)) / 3);
+    }
 }

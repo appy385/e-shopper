@@ -46,4 +46,17 @@ describe(HomePage.name, () => {
     screen.getAllByText(`In stock: ${mockProducts['Fruits & Vegatables'][0].quantity}`);
     screen.getAllByText(`MRP: ${mockProducts['Fruits & Vegatables'][0].price} /-`);
   });
+
+  test('should ', () => {
+    render(<HomePage
+      products={mockProducts}
+      onIncrement={mockInc}
+      onDecrement={mockDec}
+    />);
+    const element = screen.getAllByTestId('product-card');
+    const length = Object.keys(mockProducts).reduce(
+      (acc, category) => (acc + mockProducts[category].length), 0,
+    );
+    expect(element.length).toBe(length);
+  });
 });

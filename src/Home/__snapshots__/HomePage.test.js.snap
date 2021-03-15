@@ -16,9 +16,11 @@ exports[`HomePage should match snapshot for Card component 1`] = `
         </strong>
         <div
           class="home-category-row"
+          data-testid="home-category-row"
         >
           <div
             class="product-card"
+            data-testid="product-card"
           >
             <img
               alt="product"
@@ -72,6 +74,7 @@ exports[`HomePage should match snapshot for Card component 1`] = `
           </div>
           <div
             class="product-card"
+            data-testid="product-card"
           >
             <img
               alt="product"

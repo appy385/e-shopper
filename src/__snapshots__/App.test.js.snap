@@ -39,11 +39,25 @@ exports[`App should match snapshot 1`] = `
         <a
           href="/cart"
         >
-          <p
-            class="header-tab-dark items"
+          <div
+            class="header-basket-container"
           >
-            Basket Items: 0
-          </p>
+            <img
+              alt="logo"
+              class="header-basket-image"
+              src="basket.png"
+            />
+            <p
+              class="header-tab-dark items"
+            >
+              Basket Items:
+            </p>
+            <p
+              class="header-tab-dark items"
+            >
+              0
+            </p>
+          </div>
         </a>
       </div>
     </div>
@@ -57,221 +71,126 @@ exports[`App should match snapshot 1`] = `
           class="home-category"
         >
           <strong>
-            Fruits and Vegetables
+            Fruits & Vegatables
           </strong>
+          <div
+            class="home-category-row"
+            data-testid="home-category-row"
+          >
+            <div
+              class="product-card"
+              data-testid="product-card"
+            >
+              <img
+                alt="product"
+                src="https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              />
+              <div
+                class="product-seller"
+              />
+              <div
+                class="product-name"
+              >
+                apple
+              </div>
+              <div
+                class="product-quantity"
+              >
+                In stock: 20
+              </div>
+              <div
+                class="product-card-box"
+              >
+                <div
+                  class="product-price"
+                >
+                  MRP: 120 /-
+                </div>
+                <div
+                  class="quantity-container"
+                >
+                  <button
+                    class="quantity-inc-button"
+                    type="button"
+                  >
+                    +
+                  </button>
+                  <span
+                    class="quantity-basket-count"
+                  >
+                    0 in Basket
+                  </span>
+                  <button
+                    class="quantity-dec-button"
+                    type="button"
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div
-          class="fruits-vegetables-row"
+          class="home-category"
         >
+          <strong>
+            Household Items
+          </strong>
           <div
-            class="product-card"
+            class="home-category-row"
+            data-testid="home-category-row"
           >
-            <img
-              alt="product"
-              src="https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            />
             <div
-              class="product-seller"
+              class="product-card"
+              data-testid="product-card"
             >
-              Fresho
-            </div>
-            <div
-              class="product-name"
-            >
-              Banana-Robusta
-            </div>
-            <div
-              class="product-quantity"
-            >
-              1kg
-            </div>
-            <div
-              class="product-card-box"
-            >
+              <img
+                alt="product"
+                src="https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              />
               <div
-                class="product-price"
+                class="product-seller"
+              />
+              <div
+                class="product-name"
               >
-                MRP: 40 /-
+                table cloth
               </div>
               <div
-                class="quantity-container"
+                class="product-quantity"
               >
-                <button
-                  class="quantity-inc-button"
-                  type="button"
-                >
-                  +
-                </button>
-                <span
-                  class="quantity-basket-count"
-                >
-                  0 in Basket
-                </span>
-                <button
-                  class="quantity-dec-button"
-                  type="button"
-                >
-                  -
-                </button>
-              </div>
-            </div>
-          </div>
-          <div
-            class="product-card"
-          >
-            <img
-              alt="product"
-              src="https://thumbs.dreamstime.com/b/mango-leaf-long-slices-isolated-white-background-fresh-cut-as-package-design-element-71454082.jpg"
-            />
-            <div
-              class="product-seller"
-            >
-              Fresho
-            </div>
-            <div
-              class="product-name"
-            >
-              Mango
-            </div>
-            <div
-              class="product-quantity"
-            >
-              1kg
-            </div>
-            <div
-              class="product-card-box"
-            >
-              <div
-                class="product-price"
-              >
-                MRP: 50 /-
+                In stock: 3
               </div>
               <div
-                class="quantity-container"
+                class="product-card-box"
               >
-                <button
-                  class="quantity-inc-button"
-                  type="button"
+                <div
+                  class="product-price"
                 >
-                  +
-                </button>
-                <span
-                  class="quantity-basket-count"
+                  MRP: 200 /-
+                </div>
+                <div
+                  class="quantity-container"
                 >
-                  0 in Basket
-                </span>
-                <button
-                  class="quantity-dec-button"
-                  type="button"
-                >
-                  -
-                </button>
-              </div>
-            </div>
-          </div>
-          <div
-            class="product-card"
-          >
-            <img
-              alt="product"
-              src="https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            />
-            <div
-              class="product-seller"
-            >
-              Fresho
-            </div>
-            <div
-              class="product-name"
-            >
-              Apple
-            </div>
-            <div
-              class="product-quantity"
-            >
-              1kg
-            </div>
-            <div
-              class="product-card-box"
-            >
-              <div
-                class="product-price"
-              >
-                MRP: 70 /-
-              </div>
-              <div
-                class="quantity-container"
-              >
-                <button
-                  class="quantity-inc-button"
-                  type="button"
-                >
-                  +
-                </button>
-                <span
-                  class="quantity-basket-count"
-                >
-                  0 in Basket
-                </span>
-                <button
-                  class="quantity-dec-button"
-                  type="button"
-                >
-                  -
-                </button>
-              </div>
-            </div>
-          </div>
-          <div
-            class="product-card"
-          >
-            <img
-              alt="product"
-              src="https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            />
-            <div
-              class="product-seller"
-            >
-              Fresho
-            </div>
-            <div
-              class="product-name"
-            >
-              Banana-Organic
-            </div>
-            <div
-              class="product-quantity"
-            >
-              1kg
-            </div>
-            <div
-              class="product-card-box"
-            >
-              <div
-                class="product-price"
-              >
-                MRP: 40 /-
-              </div>
-              <div
-                class="quantity-container"
-              >
-                <button
-                  class="quantity-inc-button"
-                  type="button"
-                >
-                  +
-                </button>
-                <span
-                  class="quantity-basket-count"
-                >
-                  0 in Basket
-                </span>
-                <button
-                  class="quantity-dec-button"
-                  type="button"
-                >
-                  -
-                </button>
+                  <button
+                    class="quantity-inc-button"
+                    type="button"
+                  >
+                    +
+                  </button>
+                  <span
+                    class="quantity-basket-count"
+                  >
+                    0 in Basket
+                  </span>
+                  <button
+                    class="quantity-dec-button"
+                    type="button"
+                  >
+                    -
+                  </button>
+                </div>
               </div>
             </div>
           </div>

@@ -1,27 +1,38 @@
 
 .quantity-container {
+    display: flex;
+    align-items: center;
     background-color: #F6CF72;
-    width:fit-content;
-    border: 0.1rem solid 0.1rem;
-    align-self: center;
+    justify-content: space-between;
+    border: 1px solid rgb(186, 186, 186);
+    border-radius: 0.5rem;
 }
 .quantity-basket-count {
     border: none;
     background-color: #F6CF72;
-    width: 2rem;
-    height: 2rem;
     font-weight: 500;
-    font-size: 0.9rem;
-    padding: 0 0.1rem 0 0.1rem;
+    font-size: 0.8rem;
     cursor: pointer;
 }
 
 .quantity-dec-button {
-    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    border: none;
+    background-color: white;
+    width: 2rem;
+    height: 2rem;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius:  0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 .quantity-inc-button {
-    border-radius: 0.3rem 0.3rem 0.3rem 0.3rem;
+    border: none;
+    background-color: white;
+    width: 2rem;
+    height: 2rem;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 

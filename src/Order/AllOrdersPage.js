@@ -3,13 +3,15 @@ import React from 'react';
 import './AllOrdersPage.scss';
 import Item from '../Item/Item';
 
-const AllOrdersPage = ({ orders }) => (
-  <div>
-    <p className="all-orders">All Orders</p>
-    <hr />
-    <p className="past-orders">{`Past Orders(${orders.length})`}</p>
-    <div className="order-table-container">
-      {
+const AllOrdersPage = ({ orders }) => {
+  orders.sort((oa, ob) => ((oa.date < ob.date) ? 1 : ((ob.date < oa.date) ? -1 : 0)));
+  return (
+    <div>
+      <p className="all-orders">All Orders</p>
+      <hr />
+      <p className="past-orders">{`Past Orders(${orders.length})`}</p>
+      <div className="order-table-container">
+        {
           orders.map((order) => {
             const orderDate = new Date(order.date);
             return (
@@ -43,7 +45,7 @@ const AllOrdersPage = ({ orders }) => (
                       </tr>
                     </thead>
                     <tbody>
-                      {
+                      {/* {
                          Object.entries(order.items).map((CategoryItems) => (
                            <React.Fragment key={CategoryItems[0]}>
                              <tr className="order-category">
@@ -59,7 +61,7 @@ const AllOrdersPage = ({ orders }) => (
                            </React.Fragment>
 
                          ))
-                      }
+                      } */}
 
                       <tr className="order-item-total">
                         <td> </td>
@@ -74,7 +76,8 @@ const AllOrdersPage = ({ orders }) => (
             );
           })
        }
+      </div>
     </div>
-  </div>
-);
+  );
+};
 export default AllOrdersPage;

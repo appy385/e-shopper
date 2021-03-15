@@ -9,9 +9,11 @@
 }
 .order-table {
     width: 50%;
+    table-layout: auto;
     margin: auto;
     border-collapse: collapse;
     border: 1px solid #ddd;
+    
 }
 .order-table-header>th {
     color: white;
@@ -35,9 +37,11 @@
 
 .order-item-table{
     width: 50%;
+    table-layout: auto;
     margin: auto;
     border-collapse: collapse;
     border: 1px solid #ddd;
+   
 }
 .order-category{
     background-color: lightgray;

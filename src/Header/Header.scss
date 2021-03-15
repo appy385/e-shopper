@@ -2,16 +2,27 @@
     display: flex;
     justify-content: space-between;
     background-color: black;
+    margin-top: 1rem;
     color: white;
 }
 
 .header-light {
     display: flex;
     justify-content: space-between;
-    background-color: #D3D3D3;
+    // background-color: #D3D3D3;
+    background-color: white;
+    // padding: 1rem;
     color: black;
-    border-bottom: 1px black solid;
 }
+
+.header-light > a {
+    text-decoration: none;
+}
+
+.header-dark > a {
+    text-decoration: none;
+}
+
 .header-tab-dark {
     padding: 0.3rem;
     color:white;
@@ -22,4 +33,19 @@
 }
 .header-right {
     display: flex;
+    flex-direction: row;
+}
+
+.header-basket-image {
+    align-self: center;
+    width: 3rem;
+    // height: 1rem;
+
+}
+
+.header-basket-container {
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    border-left: 0.1px solid grey;
 }

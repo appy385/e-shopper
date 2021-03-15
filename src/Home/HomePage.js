@@ -11,7 +11,7 @@ const HomePage = ({ products, onIncrement, onDecrement }) => (
             Object.entries(products).map((categoryProducts) => (
               <div className="home-category" key={categoryProducts[0]}>
                 <strong>{categoryProducts[0]}</strong>
-                <div className="home-category-row">
+                <div className="home-category-row" data-testid="home-category-row">
                   { categoryProducts[1].map((product) => (
                     <Card
                       key={product.id}

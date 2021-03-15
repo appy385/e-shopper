@@ -21,7 +21,6 @@ const App = () => {
     const productList = await getItems();
     if (productList) {
       const categoryProducts = groupByCategory(productList.data, 'products');
-      console.log(categoryProducts);
       setProducts(categoryProducts);
     }
   }, []);
@@ -38,7 +37,7 @@ const App = () => {
       }));
       setOrders(newOrders);
     }
-  }, [orders]);
+  }, []);
 
   const onIncrement = (id, category) => {
     setCartCount(cartCount + 1);
@@ -63,7 +62,7 @@ const App = () => {
     const newCategoryProducts = products[category].map((product) => ((product.id === id) ? {
       ...product,
       count: (product.count > 0) ? product.count - 1 : product.count,
-      quantity: product.quantity + 1,
+      quantity: (product.count > 0) ? product.quantity + 1 : product.quantity,
     } : product));
 
     const newProducts = { ...products };
@@ -84,7 +83,13 @@ const App = () => {
   };
 
   const addOrder = (order) => {
-    console.log(order);
+    const newOrder = {
+      ...order,
+      total: order.items.length,
+      cost: order.items.reduce((acc, item) => (acc + item.price * item.count), 0),
+      items: groupByCategory(order.items, 'orders'),
+    };
+    setOrders([...orders, newOrder]);
   };
 
   return (

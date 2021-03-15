@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ThemeContext } from '../ThemeContext';
+import basket from '../assets/basket.png';
 import './Header.scss';
 
 const Header = ({ value }) => {
@@ -13,7 +14,12 @@ const Header = ({ value }) => {
       <div className="header-right">
         <Link to="/order"><p className={`${headerTab} orders`}>All Orders</p></Link>
         <Link to="/cart">
-          <p className={`${headerTab} items`}>{`Basket Items: ${value}`}</p>
+          <div className="header-basket-container">
+            <img src={basket} alt="logo" className="header-basket-image" />
+
+            <p className={`${headerTab} items`}>Basket Items:</p>
+            <p className={`${headerTab} items`}>{`${value}`}</p>
+          </div>
         </Link>
 
       </div>

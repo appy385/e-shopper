@@ -25,7 +25,7 @@ const CheckoutForm = ({ basket, addOrder }) => {
       onSubmit={async (values, { setSubmitting }) => {
         setSubmitting(true);
         const response = await createOrder(basket);
-        addOrder(response);
+        addOrder(response.data);
         history.push('/');
       }}
     >

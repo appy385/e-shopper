@@ -6,10 +6,10 @@ import QuantityCounter from './QuantityCounter';
 const Card = (props) => {
   const { product, onIncrement, onDecrement } = props;
   const {
-    id, src, seller, name, quantity, price, count, category,
+    src, seller, name, quantity, price, count,
   } = product;
   return (
-    <div className="product-card">
+    <div className="product-card" data-testid="product-card">
       <img src={src} alt="product" />
       <div className="product-seller">{seller}</div>
       <div className="product-name">{name}</div>
